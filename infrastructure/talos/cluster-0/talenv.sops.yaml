@@ -1,0 +1,23 @@
+clusterEndpointIP: ENC[AES256_GCM,data:cww9i3tE8VPbZA==,iv:2V6AnCLxWpNqFKzyH61UU5FkrDHNYG5/yiXaA38KTl4=,tag:MjLIFHCna0YBFfscV98QrA==,type:str]
+oidcClientId: ENC[AES256_GCM,data:zezbfnCzgLmxcssYjYR3j9Ile7gZ1x6heLxoZt2ar7A=,iv:5FzDjWO/hh4BWrXJ47D6IN2UnAGKVMmwQ+jMKU3867Q=,tag:ejj07ydhq3yCwh/S0a7kxw==,type:str]
+oidcIssuerURL: ENC[AES256_GCM,data:U0Jm/CjFx3W8vVFQi6aiuYRLJYOucVlBB5hdTXFjXw==,iv:rU+ixUxiqBaGjfE4mqu6L9k6cB5O+bG4wyNn6+lg+wY=,tag:Vwcfq34cNFNny4L3R8fTaw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1efzlapsuahun6sg22yhvpmz0dwx58m0mqxtc2xstemvh6qtgvpdslh5yur
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBDWXJ5WkRGM0ZGWkFaZlJZ
+            R0drSWQxNm5CNGtrYncyMGh4TTJwY0w2WWhFCjlkQjFZRG1UMUlJSUl0ZjZiMXUw
+            Z2lCeTVTMllDc002MGFpRlZZZ1NOazgKLS0tIGlqRkpQZVFSNVFEYzQ1WVR2RlZ0
+            VXBkSGtBZkxKYUdtYmlFbWY1Q0IxcFEKeo6HJvmDmF3hu/MiZK0rwg2sDzyHTFv6
+            UN9ztJzswRApY12NzBCKajsmfOQDyVhSC396aUp7NeL/uwn5NzUVdw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-01-13T09:30:23Z"
+    mac: ENC[AES256_GCM,data:T6Z7uZw3dL9PrsisJ/cKUlyfEuZDCIRNicUIfOGAUlcBMINKsZ3gnrnM6NbJv+u0MRNIUQ9DQKc85H/+iToW92ZQ8I2o5vZotQ2Vlx5StPn0SMhhgpBthJ188VdoOB5Uc9kI7v0D6izZtJ9IZa5R3DWQpf9NaBJOOpx1dJk3U0o=,iv:cXTgaeNydGDx+Cq7f8LS6NfeTtpiAqTUxbjOpIjv2GA=,tag:m9clRhl4DbyAeea2d9Odew==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
