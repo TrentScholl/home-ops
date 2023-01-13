@@ -58,7 +58,7 @@ controlPlane:
           extraArgs:
             feature-gates: MixedProtocolLBService=true,EphemeralContainers=True
         extraManifests:
-          - https://raw.githubusercontent.com/trentscholl/home-ops/main/infrastructure/talos/cluster-0/rbac/oidc.yaml
+          - https://raw.githubusercontent.com/TrentScholl/home-ops/main/infrastructure/talos/cluster-0/rbac/oidc.yaml
       machine:
         files:
           - content: |
@@ -90,7 +90,7 @@ controlPlane:
         time:
           disabled: false
           servers:
-            - 10.1.1.1
+            - au.pool.ntp.org
     - |-
       - op: remove
         path: /cluster/apiServer/admissionControl
