@@ -13,7 +13,7 @@ hubble:
 ipam:
   mode: kubernetes
 ipv4NativeRoutingCIDR: 10.244.0.0/16
-k8sServiceHost: 10.5.0.2
+k8sServiceHost: 10.0.10.92
 k8sServicePort: 6443
 kubeProxyReplacement: strict
 loadBalancer:
@@ -22,6 +22,7 @@ loadBalancer:
 localRedirectPolicy: true
 operator:
   rollOutPods: true
+  replicas: 1
 rollOutCiliumPods: true
 securityContext:
   privileged: true
