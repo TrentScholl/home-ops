@@ -28,8 +28,6 @@ spec:
     keepHistory: false
   values:
     installCRDs: true
-    serviceMonitor:
-      enabled: true
     topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: kubernetes.io/hostname
