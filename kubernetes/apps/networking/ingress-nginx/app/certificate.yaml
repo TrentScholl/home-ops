@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "trentscholl-com"
+  namespace: network
+spec:
+  secretName: "trentscholl-com-tls"
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "trentscholl.com"
+  dnsNames:
+    - "trentscholl.com"
+    - "*.trentscholl.com"
