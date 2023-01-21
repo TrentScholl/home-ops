@@ -27,11 +27,3 @@ spec:
     keepHistory: false
   values:
     installCRDs: true
-    serviceMonitor:
-      enabled: true
-    webhook:
-      serviceMonitor:
-        enabled: true
-    certController:
-      serviceMonitor:
-        enabled: true
