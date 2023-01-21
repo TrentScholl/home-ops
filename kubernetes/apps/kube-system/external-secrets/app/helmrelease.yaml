@@ -28,10 +28,10 @@ spec:
   values:
     installCRDs: true
     serviceMonitor:
-      enabled: false
+      enabled: true
     webhook:
       serviceMonitor:
-        enabled: false
+        enabled: true
     certController:
       serviceMonitor:
-        enabled: false
+        enabled: true
