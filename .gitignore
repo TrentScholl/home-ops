@@ -1,28 +1,23 @@
-# Folders
-ignore/
-logs/
-testing/
-
-# Trash
+# trash
 .DS_Store
 Thumbs.db
-
-# Sops
+# temp folders
+.private/
+# ansible
+xanmanning.k3s*
+# terraform
+.terraform
+*.tfvars
+# sops
 .decrypted~*
-
-# Terraform
-## Local .terraform directories
-**/.terraform/*
-
-## .tfstate files
-*.tfstate
-*.tfstate.*
-
-## terraform plan output
-*tfplan*
-
-# Other files
-kubeconfig
-
+*.agekey
+*.pub
+*.key
+*.pem
+# kubernetes
+kubeconfig*
+kubernetes/schemas
+# extras
+config.xml
 # Talos clusterconfigs
 infrastructure/talos/**/clusterconfig
