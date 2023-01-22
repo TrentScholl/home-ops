@@ -1,10 +1,10 @@
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.trentscholl.com/helmrepository_v1beta2.json
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: calico
+  name: democratic-csi
   namespace: flux-system
 spec:
   interval: 2h
-  url: https://projectcalico.docs.tigera.io/charts
+  url: https://democratic-csi.github.io/charts
