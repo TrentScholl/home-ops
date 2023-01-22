@@ -47,36 +47,6 @@ spec:
         node-publish-secret:
         controller-expand-secret:
     driver:
+      existingConfigSecret: freenas-api-iscsi-config
       config:
         driver: freenas-api-iscsi
-        instance_id:
-        httpConnection:
-          protocol: https
-          host: nas.trentscholl.com
-          apiKey:
-        zfs:
-          datasetProperties:
-            "org.freenas:description": "{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}/{{ parameters.[csi.storage.k8s.io/pvc/name] }}"
-          datasetParentName: data/k8s/v
-          detachedSnapshotsDatasetParentName: data/k8s/s
-          zvolCompression:
-          zvolDedup:
-          zvolEnableReservation: false
-          zvolBlocksize:
-        iscsi:
-          targetPortal: "nas.trentscholl.com:3260"
-          targetPortals: []
-          interface:
-          namePrefix: csi-
-          nameSuffix: "-cluster"
-          targetGroups:
-          - targetGroupPortalGroup: 1
-            targetGroupInitiatorGroup: 1
-            targetGroupAuthType: None
-            targetGroupAuthGroup:
-          extentInsecureTpc: true
-          extentXenCompat: false
-          extentDisablePhysicalBlocksize: true
-          extentBlocksize: 4096
-          extentRpm: "SSD"
-          extentAvailThreshold: 0
