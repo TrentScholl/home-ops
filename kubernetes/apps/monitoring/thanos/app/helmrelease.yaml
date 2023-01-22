@@ -53,7 +53,7 @@ spec:
               - *host
     bucketweb:
       enabled: true
-      replicaCount: 3
+      replicaCount: 1
       podAntiAffinityPreset: hard
       ingress:
         enabled: true
@@ -87,7 +87,7 @@ spec:
         size: 20Gi
     storegateway:
       enabled: true
-      replicaCount: 3
+      replicaCount: 1
       podAntiAffinityPreset: hard
       ingress:
         enabled: true
