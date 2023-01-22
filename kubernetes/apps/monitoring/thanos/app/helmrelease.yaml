@@ -135,8 +135,6 @@ spec:
         size: 20Gi
     metrics:
       enabled: true
-      serviceMonitor:
-        enabled: true
   valuesFrom:
     - targetPath: objstoreConfig.config.bucket
       kind: Secret
