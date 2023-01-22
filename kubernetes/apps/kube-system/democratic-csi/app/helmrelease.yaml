@@ -47,6 +47,6 @@ spec:
         node-publish-secret:
         controller-expand-secret:
     driver:
-      existingConfigSecret: freenas-api-iscsi-config
+      existingConfigSecret: freenas-iscsi-config
       config:
-        driver: freenas-api-iscsi
+        driver: freenas-iscsi
