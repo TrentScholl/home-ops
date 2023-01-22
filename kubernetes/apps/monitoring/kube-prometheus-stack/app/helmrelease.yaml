@@ -34,73 +34,6 @@ spec:
       config:
         global:
           resolve_timeout: 5m
-        receivers:
-          - name: heartbeat
-            webhook_configs:
-              - url: "https://heartbeat.uptimerobot.com/${SECRET_ALERTMANAGER_UPTIMEROBOT_HEARTBEAT_TOKEN}"
-                send_resolved: true
-          - name: "null" # quote
-          - name: pushover
-            pushover_configs:
-              - url_title: View in Alert Manager
-                token: "${SECRET_ALERTMANAGER_PUSHOVER_TOKEN}"
-                user_key: "${SECRET_ALERTMANAGER_PUSHOVER_USER_KEY}"
-                send_resolved: true
-                html: true
-                sound: gamelan
-                priority: |-
-                  {{ if eq .Status "firing" }}1{{ else }}0{{ end }}
-                title: |-
-                  [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }}
-                message: |-
-                  {{- range .Alerts }}
-                    {{- if ne .Labels.severity "" }}
-                      <b>Severity:</b> <i>{{ .Labels.severity }}</i>
-                    {{- else }}
-                      <b>Severity:</b> <i>N/A</i>
-                    {{- end }}
-                    {{- if ne .Annotations.description "" }}
-                      <b>Description:</b> <i>{{ .Annotations.description }}</i>
-                    {{- else if ne .Annotations.summary "" }}
-                      <b>Summary:</b> <i>{{ .Annotations.summary }}</i>
-                    {{- else if ne .Annotations.message "" }}
-                      <b>Message:</b> <i>{{ .Annotations.message }}</i>
-                    {{- else }}
-                      <b>Description:</b> <i>N/A</i>
-                    {{- end }}
-                    {{- if gt (len .Labels.SortedPairs) 0 }}
-                      <b>Details:</b>
-                      {{- range .Labels.SortedPairs }}
-                        • <b>{{ .Name }}:</b> <i>{{ .Value }}</i>
-                      {{- end }}
-                    {{- end }}
-                  {{- end }}
-        route:
-          group_by: ["alertname", "job"]
-          group_wait: 30s
-          group_interval: 5m
-          repeat_interval: 12h
-          receiver: pushover
-          routes:
-            - receiver: heartbeat
-              group_wait: 0s
-              group_interval: 2m
-              repeat_interval: 2m
-              matchers:
-                - alertname =~ "Watchdog"
-            - receiver: "null" # quote
-              matchers:
-                - alertname =~ "InfoInhibitor"
-            - receiver: pushover
-              matchers:
-                - severity = "critical"
-              continue: true
-        inhibit_rules:
-          - source_matchers:
-              - severity = "critical"
-            target_matchers:
-              - severity = "warning"
-            equal: ["alertname", "namespace"]
       ingress:
         enabled: true
         pathType: Prefix
@@ -119,7 +52,7 @@ spec:
         storage:
           volumeClaimTemplate:
             spec:
-              storageClassName: local-path
+              storageClassName: truenas-iscsi-csi
               resources:
                 requests:
                   storage: 1Gi
@@ -153,16 +86,16 @@ spec:
       enabled: true
     kubeControllerManager:
       enabled: true
-      endpoints: ["192.168.42.10", "192.168.42.11", "192.168.42.12"]
+      endpoints: ["10.0.10.92"]
     kubeScheduler:
       enabled: true
-      endpoints: ["192.168.42.10", "192.168.42.11", "192.168.42.12"]
+      endpoints: [10.0.10.92"]
     kubeProxy:
       enabled: false # Enable if not using eBPF
       # endpoints: ["192.168.42.10", "192.168.42.11", "192.168.42.12"]
     kubeEtcd:
       enabled: true
-      endpoints: ["192.168.42.10", "192.168.42.11", "192.168.42.12"]
+      endpoints: ["10.0.10.92"]
       service:
         enabled: true
         port: 2381
@@ -185,7 +118,7 @@ spec:
       thanosServiceMonitor:
         enabled: true
       prometheusSpec:
-        replicas: 3
+        replicas: 1
         replicaExternalLabelName: __replica__ # must match with thanos value `.query.replicaLabel[0]`
         # Breaks any metric that has an existing "cluster" label on a metric
         # externalLabels:
@@ -209,7 +142,7 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: local-path
+              storageClassName: truenas-iscsi-csi
               resources:
                 requests:
                   storage: 20Gi
@@ -219,23 +152,3 @@ spec:
             memory: 2000Mi
           limits:
             memory: 7000Mi
-        additionalScrapeConfigs:
-          - job_name: pikvm
-            scrape_interval: 1m
-            scrape_timeout: 10s
-            metrics_path: /api/export/prometheus/metrics
-            basic_auth:
-              username: admin
-              password: 1NtERnALOnLYuS3
-            honor_timestamps: true
-            static_configs:
-              - targets: ["pikvm.turbo.ac"]
-          - job_name: nexus
-            scrape_interval: 1m
-            scrape_timeout: 10s
-            metrics_path: /service/metrics/prometheus
-            basic_auth:
-              username: admin
-              password: 1NtERnALOnLYuS3
-            static_configs:
-              - targets: ["nexus.turbo.ac"]
