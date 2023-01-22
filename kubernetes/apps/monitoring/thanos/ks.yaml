@@ -10,8 +10,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
-    - name: cluster-apps-minio
-    - name: cluster-apps-rook-ceph-cluster
+    - name: cluster-apps-democratic-csi
   path: ./kubernetes/apps/monitoring/thanos/app
   prune: true
   sourceRef:
