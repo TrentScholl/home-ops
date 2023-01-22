@@ -29,8 +29,6 @@ spec:
   values:
     objstoreConfig:
       type: s3
-      config:
-        insecure: true
     queryFrontend:
       enabled: false
     query:
