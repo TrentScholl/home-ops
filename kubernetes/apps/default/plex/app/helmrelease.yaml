@@ -76,6 +76,13 @@ spec:
         labels:
           snapshot.home.arpa/enabled: "true"
     persistence:
+      media:
+        enabled: true
+        type: nfs
+        server: nas.trentscholl.com
+        path: /mnt/storage/movies
+        mountPath: /movies
+        readOnly: true
       transcode:
         enabled: true
         type: emptyDir
