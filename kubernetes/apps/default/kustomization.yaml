@@ -6,4 +6,5 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./kubernetes-schemas/ks.yaml
   - ./plex/ks.yaml
