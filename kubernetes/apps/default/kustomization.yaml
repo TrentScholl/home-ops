@@ -7,5 +7,6 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./cloudnative-pg/ks.yaml
+  - ./home-assistant/ks.yaml
   - ./kubernetes-schemas/ks.yaml
   - ./plex/ks.yaml
