@@ -30,7 +30,7 @@ spec:
             hajimari.io/appName: "Hass Config"
             hajimari.io/icon: cib:visual-studio-code
           hosts:
-            - host: &host hass-code.devbu.io
+            - host: &host hass-code.trentscholl.com
               paths:
                 - path: /
                   pathType: Prefix
