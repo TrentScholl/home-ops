@@ -10,3 +10,4 @@ resources:
   - ./home-assistant/ks.yaml
   - ./kubernetes-schemas/ks.yaml
   - ./plex/ks.yaml
+  - ./zwave-js-ui/ks.yaml
