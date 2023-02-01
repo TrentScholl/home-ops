@@ -35,7 +35,7 @@ spec:
         - name: TZ
           value: Australia/Brisbane
       service:
-        loadBalancerIP: "${SVC_NGINX_ADDR}"
+        externalIPs: ["${SVC_NGINX_ADDR}"]
         externalTrafficPolicy: Local
       publishService:
         enabled: true
