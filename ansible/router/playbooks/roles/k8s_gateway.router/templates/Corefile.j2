@@ -1,0 +1,40 @@
+(common) {
+  errors
+  log
+  reload
+  loadbalance
+  cache
+  loop
+  local
+  prometheus 10.0.10.1:9153
+}
+
+(localhostz) {
+  # dnsmasq is only enabled for setting hostnames in Opnsense
+  hosts /var/etc/dnsmasq-hosts {
+    ttl 1
+    reload 5s
+    fallthrough
+  }
+}
+
+(k8s_gatewayz) {
+  forward . 10.0.10.92:53
+}
+
+. {
+  import common
+  import localhostz
+  forward . tls://45.90.28.61 tls://45.90.30.61 {
+    tls_servername router-2457e3.dns.nextdns.io
+  }
+  health {
+    lameduck 5s
+  }
+}
+
+trentscholl.com {
+  import common
+  import localhostz
+  import k8s_gatewayz
+}
