@@ -32,6 +32,12 @@ packages_install:
   - socat
   - software-properties-common
   - unzip
+  - open-vm-tools
+  - cifs-utils
+  - lsscsi
+  - sg3-utils
+  - multipath-tools
+  - scsitools
 packages_remove:
   - apparmor
   - ufw
