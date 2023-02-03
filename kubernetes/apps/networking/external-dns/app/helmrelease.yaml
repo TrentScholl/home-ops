@@ -43,11 +43,13 @@ spec:
             key: api-key
     extraArgs:
       - --cloudflare-proxied
-      - --annotation-filter=external-dns.home.arpa/enabled in (true)
+      - --annotation-filter=external-dns.alpha.kubernetes.io/target
     policy: sync
     sources: ["ingress"]
     txtPrefix: k8s.
     txtOwnerId: default
     domainFilters: ["trentscholl.com"]
+    serviceMonitor:
+      enabled: true
     podAnnotations:
       secret.reloader.stakater.com/reload: external-dns-secret
