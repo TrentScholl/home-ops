@@ -31,7 +31,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/onedr0p/plex
-      tag: 1.30.1.6562-915986d62@sha256:50315e766947f766b529d6b3ef50f4aef8cc0f96b6c7d9ec0cc3cdf1bdc428de
+      tag: 1.30.2.6563-3d4dc0cce@sha256:a48f8cd0680791c4102492619c6ac30451bafde9746083e07b65c2cbfc1446ff
     env:
       TZ: Australia/Brisbane
     service:
@@ -47,7 +47,7 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          external-dns.home.arpa/enabled: "true"
+          external-dns.alpha.kubernetes.io/target: ipv4.trentscholl.com
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
           hajimari.io/icon: mdi:plex
         hosts:
@@ -63,18 +63,13 @@ spec:
       runAsGroup: 568
       fsGroup: 568
       fsGroupChangePolicy: "OnRootMismatch"
-      supplementalGroups:
-        - 44
-        - 109
-        - 100
+      supplementalGroups: [44, 109, 10000]
     volumeClaimTemplates:
       - name: config
         mountPath: /config
         accessMode: ReadWriteOnce
         size: 100Gi
         storageClass: truenas-iscsi-csi
-        labels:
-          snapshot.home.arpa/enabled: "true"
     persistence:
       movies:
         enabled: true
@@ -93,9 +88,14 @@ spec:
       transcode:
         enabled: true
         type: emptyDir
+    nodeSelector:
+      node-role.kubernetes.io/worker: "true"
+      intel.feature.node.kubernetes.io/gpu: "true"
     resources:
       requests:
+        gpu.intel.com/i915: 1
         cpu: 100m
         memory: 2000Mi
       limits:
+        gpu.intel.com/i915: 1
         memory: 10000Mi
