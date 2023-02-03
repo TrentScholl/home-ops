@@ -33,7 +33,6 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-cloudnative-pg
-    - name: cluster-apps-kyverno
     - name: cluster-apps-democratic-csi
     - name: cluster-apps-external-secrets-stores
   path: ./kubernetes/apps/default/cloudnative-pg/cluster
