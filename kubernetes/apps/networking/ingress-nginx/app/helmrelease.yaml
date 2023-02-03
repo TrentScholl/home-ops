@@ -27,8 +27,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    tcp:
-      "1883": "default/emqx:1883"
     controller:
       replicaCount: 1
       extraEnvs:
@@ -37,16 +35,14 @@ spec:
       service:
         externalIPs: ["${SVC_NGINX_ADDR}"]
         externalTrafficPolicy: Local
-      publishService:
-        enabled: true
       ingressClassResource:
         default: true
       config:
         client-body-buffer-size: "100M"
         client-body-timeout: 120
         client-header-timeout: 120
-        custom-http-errors: 400,401,403,404,500,502,503,504
         enable-brotli: "true"
+        enable-real-ip: "true"
         forwarded-for-header: "CF-Connecting-IP"
         hsts-max-age: "31449600"
         keep-alive-requests: 10000
@@ -60,11 +56,17 @@ spec:
           "path": "$uri", "request_query": "$args", "request_length": $request_length,
           "duration": $request_time,"method": "$request_method", "http_referrer": "$http_referer",
           "http_user_agent": "$http_user_agent"}
-        proxy-body-size: "100M"
+        proxy-body-size: 0
+        proxy-buffer-size: "16k"
         ssl-protocols: "TLSv1.3 TLSv1.2"
         use-forwarded-headers: "true"
       metrics:
         enabled: true
+        serviceMonitor:
+          enabled: true
+          namespace: networking
+          namespaceSelector:
+            any: true
       extraArgs:
         default-ssl-certificate: |-
           networking/trentscholl-com-tls
@@ -84,31 +86,9 @@ spec:
           memory: 250Mi
         limits:
           memory: 500Mi
+    # Note: obsidian-livesync does not work with a default backend enabled
     defaultBackend:
-      enabled: true
-      image:
-        repository: ghcr.io/tarampampam/error-pages
-        tag: 2.19.0
-      replicaCount: 3
-      extraEnvs:
-        - name: TEMPLATE_NAME
-          value: ghost
-        - name: SHOW_DETAILS
-          value: "false"
-      affinity:
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 100
-              podAffinityTerm:
-                labelSelector:
-                  matchExpressions:
-                    - key: app.kubernetes.io/name
-                      operator: In
-                      values: ["ingress-nginx"]
-                    - key: app.kubernetes.io/component
-                      operator: In
-                      values: ["default-backend"]
-                topologyKey: kubernetes.io/hostname
+      enabled: false
   valuesFrom:
     # Cloudflare Networks
     # https://www.cloudflare.com/ips/
