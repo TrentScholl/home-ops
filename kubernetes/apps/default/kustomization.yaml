@@ -13,6 +13,7 @@ resources:
   - ./hajimari/ks.yaml
   - ./home-assistant/ks.yaml
   - ./kubernetes-schemas/ks.yaml
+  - ./overseerr/ks.yaml
   - ./plex/ks.yaml
   - ./radarr/ks.yaml
   - ./redis/ks.yaml
