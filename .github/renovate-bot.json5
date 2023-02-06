@@ -1,0 +1,6 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "username": "grevillea-bot[bot]",
+  "gitAuthor": "grevillea-bot <25756717+grevillea-bot[bot]@users.noreply.github.com>",
+  "repositories": ["TrentScholl/home-ops"]
+}
