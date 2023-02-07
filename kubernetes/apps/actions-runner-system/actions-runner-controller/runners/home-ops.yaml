@@ -12,15 +12,8 @@ spec:
       imagePullPolicy: IfNotPresent
       dockerdWithinRunnerContainer: true
       ephemeral: true
-      repository: onedr0p/home-ops
+      repository: TrentScholl/home-ops
       labels: ["self-hosted"]
-      volumeMounts:
-        - name: cache-volume
-          mountPath: /cache
-      volumes:
-        - name: cache-volume
-          persistentVolumeClaim:
-            claimName: actions-runner-controller-cache
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.trentscholl.com/horizontalrunnerautoscaler_v1alpha1.json
 apiVersion: actions.summerwind.dev/v1alpha1
