@@ -92,10 +92,3 @@ spec:
         memory: 512Mi
       limits:
         memory: 4000Mi
-
-    volumeClaimTemplates:
-      - name: data
-        mountPath: /unifi
-        accessMode: ReadWriteOnce
-        size: 2Gi
-        storageClass: truenas-iscsi-csi
