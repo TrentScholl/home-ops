@@ -72,12 +72,6 @@ spec:
             enabled: true
             port: 19132
             protocol: UDP
-            
-    probes:
-      liveness: &probes
-        enabled: false
-      readiness: *probes
-      startup: *probes
 
     volumeClaimTemplates:
       - name: data
