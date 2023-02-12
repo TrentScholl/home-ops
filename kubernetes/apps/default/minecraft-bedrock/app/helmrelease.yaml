@@ -26,7 +26,7 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-    
+
   values:
     controller:
       type: statefulset
@@ -73,6 +73,22 @@ spec:
             enabled: true
             port: 19132
             protocol: UDP
+
+    probes:
+      liveness: &probes
+        enabled: true
+        custom: true
+        spec:
+          exec:
+              command:
+                - mc-monitor
+                - status-bedrock
+                - --host
+                - 127.0.0.1
+          initialDelaySeconds: 30
+      readiness: *probes
+      startup:
+        enabled: false
 
     volumeClaimTemplates:
       - name: data
