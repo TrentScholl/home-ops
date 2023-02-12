@@ -69,6 +69,8 @@ spec:
         externalIPs: ["${SVC_MINECRAFT_BEDROCK_ADDR}"]
         externalTrafficPolicy: Local
         ports:
+          http:
+            enabled: false
           minecraft:
             enabled: true
             port: 19132
