@@ -1,0 +1,23 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: monitoring
+resources:
+  - ./configmap.yaml
+  - ./helmrelease.yaml
+  - ./prometheusrule.yaml
+configMapGenerator:
+  - name: eaton-ups-dashboard
+    files:
+      - eaton-ups-dashboard.json=./dashboard.json
+generatorOptions:
+  disableNameSuffixHash: true
+  annotations:
+    kustomize.toolkit.fluxcd.io/substitute: disabled
+  labels:
+    grafana_dashboard: "true"
+labels:
+  - pairs:
+      app.kubernetes.io/name: snmp-exporter-eaton-ups
+      app.kubernetes.io/instance: snmp-exporter-eaton-ups
