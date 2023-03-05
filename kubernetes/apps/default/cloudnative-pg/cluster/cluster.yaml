@@ -5,8 +5,10 @@ kind: Cluster
 metadata:
   name: postgres
   namespace: default
+  annotations:
+    kyverno.io/ignore: "true"
 spec:
-  instances: 1
+  instances: 3
   imageName: ghcr.io/cloudnative-pg/postgresql:14.5
   primaryUpdateStrategy: unsupervised
   storage:

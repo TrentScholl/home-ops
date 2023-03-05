@@ -6,9 +6,6 @@ metadata:
   namespace: default
   annotations:
     coredns.io/hostname: postgres.trentscholl.com
-  labels:
-    app.kubernetes.io/name: *app
-    app.kubernetes.io/instance: *app
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Local
