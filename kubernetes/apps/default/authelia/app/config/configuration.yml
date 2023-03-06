@@ -20,18 +20,6 @@ access_control:
   rules:
     - domain: ["grafana.trentscholl.com"]
       policy: bypass
-    - domain: ["letsblockit.trentscholl.com"]
-      resources: ["^/lists.*$"]
-      policy: bypass
-    - domain: ["navidrome.trentscholl.com"]
-      resources: ["^/rest.*$"]
-      policy: bypass
-    - domain: ["navidrome.trentscholl.com"]
-      resources: ["^/metrics.*$"]
-      policy: deny
-    - domain: ["wizarr.trentscholl.com"]
-      resources: ["^/join.*$", "^/j/.*$", "^/setup.*$", "^/static/.*$"]
-      policy: bypass
 
 identity_providers:
   oidc:
@@ -48,37 +36,3 @@ identity_providers:
         scopes: ["openid", "profile", "groups", "email"]
         redirect_uris: ["https://grafana.trentscholl.com/login/generic_oauth"]
         userinfo_signing_algorithm: none
-      - id: immich
-        description: Immich
-        secret: "${IMMICH_OAUTH_CLIENT_SECRET}"
-        public: false
-        authorization_policy: two_factor
-        pre_configured_consent_duration: 1y
-        scopes: ["openid", "profile", "email"]
-        redirect_uris: ["https://photos.trentscholl.com/auth/login", "app.immich:/"]
-        userinfo_signing_algorithm: none
-      - id: miniflux
-        description: Miniflux
-        secret: "${MINIFLUX_OAUTH_CLIENT_SECRET}"
-        public: false
-        authorization_policy: two_factor
-        pre_configured_consent_duration: 1y
-        scopes: ["openid", "profile", "groups", "email"]
-        redirect_uris: ["https://miniflux.trentscholl.com/oauth2/oidc/callback"]
-        userinfo_signing_algorithm: none
-      - id: weave-gitops
-        description: Weave GitOps
-        secret: "${WEAVEGITOPS_OAUTH_CLIENT_SECRET}"
-        public: false
-        authorization_policy: two_factor
-        pre_configured_consent_duration: 1y
-        scopes: ["openid", "profile", "groups", "email"]
-        redirect_uris: ["https://gitops.trentscholl.com/oauth2/callback"]
-        userinfo_signing_algorithm: none
-      # - id: gitea
-      #   secret: "${GITEA_OAUTH_CLIENT_SECRET}"
-      #   public: false
-      #   authorization_policy: two_factor
-      #   scopes: ["openid", "profile", "groups", "email"]
-      #   redirect_uris: ["https://gitea.trentscholl.com/user/oauth2/authelia/callback"]
-      #   userinfo_signing_algorithm: none
