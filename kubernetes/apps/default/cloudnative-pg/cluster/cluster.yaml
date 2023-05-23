@@ -9,7 +9,10 @@ metadata:
     kyverno.io/ignore: "true"
 spec:
   instances: 3
-  imageName: ghcr.io/cloudnative-pg/postgresql:14.5
+  imageName: ghcr.io/cloudnative-pg/postgresql:14.8-2
+  inheritedMetadata:
+    labels:
+      kube-image-keeper.enix.io/image-caching-policy: ignore
   primaryUpdateStrategy: unsupervised
   storage:
     size: 20Gi
@@ -18,7 +21,7 @@ spec:
     name: cloudnative-pg-secret
   postgresql:
     parameters:
-      max_connections: "300"
+      max_connections: "600"
       shared_buffers: 512MB
   monitoring:
     enablePodMonitor: true
