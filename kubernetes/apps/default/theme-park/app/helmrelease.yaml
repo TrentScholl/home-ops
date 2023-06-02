@@ -28,7 +28,7 @@ spec:
     keepHistory: false
   values:
     controller:
-      replicas: 1
+      replicas: 2
       strategy: RollingUpdate
     image:
       repository: ghcr.io/onedr0p/theme-park
@@ -56,7 +56,7 @@ spec:
     topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: kubernetes.io/hostname
-        whenUnsatisfiable: DoNotSchedule
+        whenUnsatisfiable: ScheduleAnyway
         labelSelector:
           matchLabels:
             app.kubernetes.io/name: *app
