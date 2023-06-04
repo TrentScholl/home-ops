@@ -30,4 +30,3 @@ spec:
     keepHistory: false
   values:
     fullnameOverride: gha-runner-scale-set-controller
-
