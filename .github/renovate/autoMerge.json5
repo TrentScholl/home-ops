@@ -5,19 +5,10 @@
       "description": "Auto merge container digests",
       "matchDatasources": ["docker"],
       "automerge": true,
-      "automergeType": "branch",
       "ignoreTests": true,
+      "automergeType": "branch",
       "matchUpdateTypes": ["digest"],
-      "matchPackagePattern": ["ghcr.io/TrentScholl"]
-    },
-    {
-      "description": "Auto merge containers",
-      "matchDatasources": ["docker"],
-      "automerge": true,
-      "automergeType": "branch",
-      "ignoreTests": true,
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchPackageNames": ["ghcr.io/TrentScholl/prowlarr-nightly"]
+      "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p", "ghcr.io/TrentScholl"]
     },
     {
       "description": "Auto merge GitHub Actions",

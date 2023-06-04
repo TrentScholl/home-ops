@@ -7,8 +7,8 @@ on:
     - cron: "0 0 * * 0"
 
 jobs:
-  check:
-    name: Check
+  check-links:
+    name: Check Links
     runs-on: ubuntu-latest
     steps:
       - name: Generate Token
@@ -23,26 +23,13 @@ jobs:
         with:
           token: "${{ steps.generate-token.outputs.token }}"
 
-      - name: Restore lychee cache
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
-        with:
-          path: .lycheecache
-          key: cache-lychee-${{ github.sha }}
-          restore-keys: cache-lychee-
-
       - name: Scan for broken links
         uses: lycheeverse/lychee-action@ec3ed119d4f44ad2673a7232460dc7dff59d2421 # v1.8.0
         id: lychee
         env:
           GITHUB_TOKEN: "${{ steps.generate-token.outputs.token }}"
         with:
-          args: >
-            --cache
-            --max-cache-age 1d
-            --verbose
-            --no-progress
-            --exclude-mail
-            './**/*.md'
+          args: --verbose --no-progress --exclude-mail './**/*.md'
 
       - name: Find Link Checker Issue
         id: broken-link-check-issue
