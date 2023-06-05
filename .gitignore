@@ -19,5 +19,3 @@ kubeconfig*
 kubernetes/schemas
 # extras
 config.xml
-# Talos clusterconfigs
-infrastructure/talos/**/clusterconfig
