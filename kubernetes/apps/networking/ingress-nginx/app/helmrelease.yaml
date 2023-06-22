@@ -32,7 +32,7 @@ spec:
       service:
         annotations:
           external-dns.alpha.kubernetes.io/hostname: ingress.trentscholl.com
-        externalIPs: ["10.69.0.101"]
+        externalIPs: ["10.45.0.1"]
         externalTrafficPolicy: Local
       ingressClassResource:
         default: true
@@ -56,7 +56,7 @@ spec:
           namespaceSelector:
             any: true
       extraArgs:
-        default-ssl-certificate: networking/trentscholl-com-tls
+        default-ssl-certificate: networking/devbu-io-tls
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
@@ -72,10 +72,4 @@ spec:
         limits:
           memory: 500Mi
     defaultBackend:
-      enabled: true
-      image:
-        repository: ghcr.io/tarampampam/error-pages
-        tag: 2.24.0
-      extraEnvs:
-        - { name: TEMPLATE_NAME, value: lost-in-space }
-        - { name: SHOW_DETAILS, value: "false" }
+      enabled: false
