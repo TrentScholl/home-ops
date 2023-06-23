@@ -6,7 +6,7 @@ metadata:
   name: democratic-csi
   namespace: kube-system
 spec:
-  interval: 15m
+  interval: 30m
   chart:
     spec:
       chart: democratic-csi
@@ -15,7 +15,7 @@ spec:
         kind: HelmRepository
         name: democratic-csi
         namespace: flux-system
-  maxHistory: 3
+  maxHistory: 2
   install:
     createNamespace: true
     crds: CreateReplace
