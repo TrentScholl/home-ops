@@ -56,7 +56,7 @@ spec:
           namespaceSelector:
             any: true
       extraArgs:
-        default-ssl-certificate: networking/devbu-io-tls
+        default-ssl-certificate: networking/trentscholl-com-tls
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
