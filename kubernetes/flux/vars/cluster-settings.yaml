@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
   name: cluster-settings
 data:
-  CLUSTER_CLOUDFLARE_TUNNEL_ID: "9d27c0df-12d8-4e13-a0b3-8aaedb37dfd9"
+  CLUSTER_CLOUDFLARE_TUNNEL_ID: c57aba5f-c2d7-48ae-b4ab-b253484efa67
   NET_NODE_CIDR: "10.0.10.0/24"
   NET_POD_CIDR: "10.244.0.0/16"
   NET_SVC_CIDR: "10.96.0.0/12"
