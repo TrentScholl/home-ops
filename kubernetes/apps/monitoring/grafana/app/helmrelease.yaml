@@ -216,9 +216,9 @@ spec:
       enabled: true
       ingressClassName: nginx
       annotations:
-        external-dns.alpha.kubernetes.io/target: ingress.devbu.io
+        external-dns.alpha.kubernetes.io/target: ingress.trentscholl.com
       hosts:
-        - &host grafana.devbu.io
+        - &host grafana.trentscholl.com
       tls:
         - hosts:
             - *host
