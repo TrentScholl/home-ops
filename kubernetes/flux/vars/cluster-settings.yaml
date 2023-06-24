@@ -6,4 +6,4 @@ metadata:
   name: cluster-settings
 data:
   CLUSTER_NAME: home-ops
-  CLUSTER_CLOUDFLARE_TUNNEL_ID: c57aba5f-c2d7-48ae-b4ab-b253484efa67
+  CLUSTER_CLOUDFLARE_TUNNEL_ID: 8ddd6397-214d-48c9-abbd-ae740e11d85b
