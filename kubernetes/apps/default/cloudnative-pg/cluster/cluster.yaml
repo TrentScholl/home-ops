@@ -52,7 +52,7 @@ spec:
   #         compression: bzip2
   #         maxParallel: 8
   #       destinationPath: s3://postgresql/
-  #       endpointURL: http://s3.turbo.ac
+  #       endpointURL: http://s3.trentscholl.com
   #       s3Credentials:
   #         accessKeyId:
   #           name: cloudnative-pg-secret
