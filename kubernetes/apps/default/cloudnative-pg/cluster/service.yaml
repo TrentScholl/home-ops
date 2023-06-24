@@ -9,7 +9,7 @@ metadata:
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Local
-  externalIPs: ["10.69.0.113"]
+  externalIPs: ["10.45.0.21"]
   ports:
     - name: postgres
       port: 5432
