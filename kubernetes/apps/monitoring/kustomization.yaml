@@ -10,3 +10,5 @@ resources:
   - ./kube-prometheus-stack/ks.yaml
   - ./snmp-exporter/ks.yaml
   - ./thanos/ks.yaml
+  # Standard Resources
+  - ./miscellaneous
