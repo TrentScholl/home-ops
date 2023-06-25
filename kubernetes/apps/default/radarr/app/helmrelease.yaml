@@ -45,7 +45,6 @@ spec:
       RADARR__PORT: &port 80
       RADARR__APPLICATION_URL: "https://{{ .Release.Name }}.trentscholl.com"
       RADARR__LOG_LEVEL: info
-    envFrom: *envFrom
     service:
       main:
         ports:
