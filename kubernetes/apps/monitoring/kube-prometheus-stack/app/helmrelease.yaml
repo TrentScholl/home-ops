@@ -113,7 +113,7 @@ spec:
           - hosts:
               - *host
       alertmanagerSpec:
-        replicas: 3
+        replicas: 1
         storage:
           volumeClaimTemplate:
             spec:
@@ -211,7 +211,7 @@ spec:
       thanosServiceMonitor:
         enabled: true
       prometheusSpec:
-        replicas: 3
+        replicas: 1
         replicaExternalLabelName: __replica__
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
