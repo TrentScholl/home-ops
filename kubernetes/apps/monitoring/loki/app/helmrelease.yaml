@@ -118,7 +118,7 @@ spec:
               - *host
     read:
       persistence:
-        storageClass: local-path
+        storageClass: truenas-iscsi-csi
       extraVolumeMounts:
         - name: rules
           mountPath: /rules
@@ -127,10 +127,10 @@ spec:
           emptyDir: {}
     write:
       persistence:
-        storageClass: local-path
+        storageClass: truenas-iscsi-csi
     backend:
       persistence:
-        storageClass: local-path
+        storageClass: truenas-iscsi-csi
       extraVolumeMounts:
         - name: rules
           mountPath: /rules/fake
