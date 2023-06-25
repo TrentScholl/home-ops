@@ -12,4 +12,5 @@ resources:
   - ./lldap/ks.yaml
   - ./plex/ks.yaml
   - ./sabnzbd/ks.yaml
+  - ./sonarr/ks.yaml
   - ./zwave-js-ui/ks.yaml
