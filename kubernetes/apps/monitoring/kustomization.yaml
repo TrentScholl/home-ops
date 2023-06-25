@@ -8,6 +8,7 @@ resources:
   # Flux-Kustomizations
   - ./grafana/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
+  - ./loki/ks.yaml
   - ./snmp-exporter/ks.yaml
   - ./thanos/ks.yaml
   # Standard Resources
