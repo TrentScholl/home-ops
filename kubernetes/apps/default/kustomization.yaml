@@ -10,4 +10,5 @@ resources:
   - ./cloudnative-pg/ks.yaml
   - ./home-assistant/ks.yaml
   - ./lldap/ks.yaml
+  - ./plex/ks.yaml
   - ./zwave-js-ui/ks.yaml
