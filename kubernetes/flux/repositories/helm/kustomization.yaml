@@ -37,4 +37,4 @@ resources:
   - ./rook-ceph.yaml
   - ./stakater.yaml
   - ./tf-controller.yaml
-  - ./weave-gitops.yaml
+  - ./weaveworks.yaml
