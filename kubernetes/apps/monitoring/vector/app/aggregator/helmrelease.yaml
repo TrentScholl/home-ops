@@ -56,7 +56,7 @@ spec:
         type: LoadBalancer
         annotations:
           external-dns.alpha.kubernetes.io/hostname: vector.trentscholl.com
-        externalIPs: ["192.168.69.111"]
+        externalIPs: ["10.45.0.22"]
         externalTrafficPolicy: Local
         ports:
           http:

@@ -43,6 +43,9 @@ spec:
       TZ: Australia/Brisbane
     service:
       main:
+        type: LoadBalancer
+        externalIPs: ["10.45.0.23"]
+        externalTrafficPolicy: Local
         ports:
           http:
             port: 32400
