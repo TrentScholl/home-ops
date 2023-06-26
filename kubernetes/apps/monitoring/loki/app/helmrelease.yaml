@@ -104,7 +104,7 @@ spec:
         analytics:
           reporting_enabled: false
     gateway:
-      replicas: 1
+      replicas: 3
       ingress:
         enabled: true
         ingressClassName: nginx
