@@ -38,7 +38,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: ghcr.io/onedr0p/plex
-      tag: 1.32.4.7195-7c8f9d3b6@sha256:39c4ad71d92790d54b2d14be5fdabca940591ab2b9f8291d02653cd4f80d9d4f
+      tag: 1.32.6.7557-1cf77d501@sha256:6f87b0811df009af1defc9afad6afa383b9d821a7fcaddc968df41ba445d321e
     env:
       TZ: Australia/Brisbane
     service:
@@ -111,7 +111,7 @@ spec:
         memory: 10000Mi
     sidecars:
       auto-languages:
-        image: docker.io/remirigal/plex-auto-languages:v1.2.1
+        image: docker.io/remirigal/plex-auto-languages:v1.2.3
         imagePullPolicy: IfNotPresent
         env:
           - { name: PLEX_URL, value: http://localhost:32400 }
