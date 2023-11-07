@@ -12,14 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Generate Token
-        uses: tibdex/github-app-token@32691ba7c9e7063bd457bd8f2a5703138591fa58 # v1.9.0
+        uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
         id: generate-token
         with:
           app_id: "${{ secrets.BOT_APP_ID }}"
           private_key: "${{ secrets.BOT_APP_PRIVATE_KEY }}"
 
       - name: Checkout
-        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           token: "${{ steps.generate-token.outputs.token }}"
 
@@ -33,7 +33,7 @@ jobs:
 
       - name: Find Link Checker Issue
         id: broken-link-check-issue
-        uses: micalevisk/last-issue-action@305829d9728f47beb0029417167a0af890edfd6e # v2.1.0
+        uses: micalevisk/last-issue-action@0c6e067a6497b7886b8c5cd2d989519bd02f5bea # v2.2.0
         with:
           state: open
           labels: |

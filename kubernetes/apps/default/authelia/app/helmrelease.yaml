@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 1.5.1
+      version: 2.0.3
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -34,7 +34,7 @@ spec:
   values:
     initContainers:
       01-init-db:
-        image: ghcr.io/onedr0p/postgres-init:14.8
+        image: ghcr.io/onedr0p/postgres-init:14.9
         imagePullPolicy: IfNotPresent
         envFrom: &envFrom
           - secretRef:
@@ -46,7 +46,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: ghcr.io/authelia/authelia
-      tag: master@sha256:61b477e551b72e2e80cab50dafed36c17dc4d31bfa4b56492c308807502d4210
+      tag: master@sha256:57518cb813364bf886ba9204e11fa83fe73b6deff39d527d792ef54847c9f9b3
     args: ["--config", "/config/configuration.yml", "--config.experimental.filters", "expand-env"]
     env:
       AUTHELIA_AUTHENTICATION_BACKEND_LDAP_ADDITIONAL_GROUPS_DN: ou=groups
