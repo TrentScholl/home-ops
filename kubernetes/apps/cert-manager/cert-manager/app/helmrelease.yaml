@@ -41,3 +41,7 @@ spec:
       servicemonitor:
         enabled: true
         prometheusInstance: monitoring
+    webhook:
+      replicaCount: 2
+    cainjector:
+      replicaCount: 2
