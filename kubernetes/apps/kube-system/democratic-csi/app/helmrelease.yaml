@@ -31,6 +31,7 @@ spec:
   values:
     csiDriver:
       name: "org.democratic-csi.iscsi"
+      attachRequired: false
     storageClasses:
     - name: truenas-iscsi-csi
       defaultClass: false
