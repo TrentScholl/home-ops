@@ -34,7 +34,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/zwave-js/zwave-js-ui
-      tag: 9.3.2
+      tag: 9.6.0
     env:
       TZ: Australia/Brisbane
     service:
