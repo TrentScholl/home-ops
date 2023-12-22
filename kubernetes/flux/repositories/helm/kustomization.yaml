@@ -3,6 +3,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - kubernetes-sigs-metrics-server.yaml
+  - cilium.yaml  
   - ./actions-runner-controller.yaml
   - ./angelnu.yaml
   - ./aqua.yaml
@@ -27,7 +29,6 @@ resources:
   - ./intel.yaml
   - ./jetstack.yaml
   - ./kubernetes-dashboard.yaml
-  - kubernetes-sigs-metrics-server.yaml
   - ./kyverno.yaml
   - ./metrics-server.yaml
   - ./nextcloud.yaml
