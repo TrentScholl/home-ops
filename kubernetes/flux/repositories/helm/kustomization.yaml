@@ -8,3 +8,4 @@ resources:
   - ./cilium.yaml
   - ./jetstack.yaml
   - ./external-secrets.yaml
+  - ./sergelogvinov.yaml
