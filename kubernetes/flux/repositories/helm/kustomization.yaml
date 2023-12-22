@@ -9,3 +9,4 @@ resources:
   - ./jetstack.yaml
   - ./external-secrets.yaml
   - ./sergelogvinov.yaml
+  - ./prometheus-community.yaml
