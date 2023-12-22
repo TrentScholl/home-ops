@@ -24,7 +24,7 @@ jobs:
             kubectl
 
       - name: Setup Python
-        uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4.7.1
+        uses: actions/setup-python@b64ffcaf5b410884ad320a9cfac8866006a109aa # v4.8.0
         with:
           python-version: 3.x
 
@@ -106,7 +106,7 @@ jobs:
           EOF
 
       - name: Publish web container
-        uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
+        uses: docker/build-push-action@4a13e500e55cf31b7a5d59a38ab2040ab0f42f56 # v5.1.0
         with:
           context: /home/runner/crdSchemas
           platforms: linux/amd64,linux/arm64
