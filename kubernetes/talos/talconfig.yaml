@@ -11,14 +11,39 @@ cniConfig:
 
 additionalApiServerCertSans: &san
   - ${clusterEndpointIP}
+  - "127.0.0.1" # KubePrism
+additionalMachineCertSans:
+  - ${clusterEndpointIP}
   - ${clusterName}.${clusterDNSSuffix}
   - "127.0.0.1" # KubePrism
-additionalMachineCertSans: *san
 
 nodes:
-  - hostname: k8s-01.trentscholl.com
+  - hostname: k8s-node-01.trentscholl.com
     ipAddress: 10.1.1.21
     controlPlane: true
+    nodeLabels:
+      topology.kubernetes.io/zone: vm-01
+      topology.kubernetes.io/region: vm-cluster-01
+    installDiskSelector:
+      model: QEMU HARDDISK
+      type: HDD
+
+  - hostname: k8s-node-02.trentscholl.com
+    ipAddress: 10.1.1.22
+    controlPlane: true
+    nodeLabels:
+      topology.kubernetes.io/zone: vm-01
+      topology.kubernetes.io/region: vm-cluster-01
+    installDiskSelector:
+      model: QEMU HARDDISK
+      type: HDD
+
+  - hostname: k8s-node-03.trentscholl.com
+    ipAddress: 10.1.1.23
+    controlPlane: true
+    nodeLabels:
+      topology.kubernetes.io/zone: vm-01
+      topology.kubernetes.io/region: vm-cluster-01
     installDiskSelector:
       model: QEMU HARDDISK
       type: HDD
@@ -39,21 +64,6 @@ controlPlane:
       machine:
         network:
           disableSearchDomain: true
-
-    # Force nameserver
-    - |-
-      machine:
-        network:
-          nameservers:
-            - 10.1.1.1
-
-    # Configure NTP
-    - |-
-      machine:
-        time:
-          disabled: false
-          servers:
-            - time.cloudflare.com
 
     # Configure cluster loopback
     - |-
