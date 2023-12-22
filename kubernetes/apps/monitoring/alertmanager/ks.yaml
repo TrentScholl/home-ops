@@ -19,3 +19,4 @@ spec:
   wait: true
   dependsOn:
     - name: external-secrets-stores
+    - name: proxmox-csi-plugin
