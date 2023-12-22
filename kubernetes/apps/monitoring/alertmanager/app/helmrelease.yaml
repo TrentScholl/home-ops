@@ -57,7 +57,7 @@ spec:
         enabled: true
         className: internal-nginx
         hosts:
-          - host: &host alertmanager.bjw-s.dev
+          - host: &host alertmanager.trentscholl.com
             paths:
               - path: /
                 service:
