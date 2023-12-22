@@ -27,6 +27,7 @@ resources:
   - ./intel.yaml
   - ./jetstack.yaml
   - ./kubernetes-dashboard.yaml
+  - kubernetes-sigs-metrics-server.yaml
   - ./kyverno.yaml
   - ./metrics-server.yaml
   - ./nextcloud.yaml
