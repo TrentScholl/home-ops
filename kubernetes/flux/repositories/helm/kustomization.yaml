@@ -10,3 +10,4 @@ resources:
   - ./external-secrets.yaml
   - ./sergelogvinov.yaml
   - ./prometheus-community.yaml
+  - ./kubernetes-sigs-external-dns.yaml
