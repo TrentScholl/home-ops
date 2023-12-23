@@ -1,0 +1,10 @@
+---
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: cloudflared-tunnel
+spec:
+  endpoints:
+    - dnsName: trentscholl.com
+      recordType: CNAME
+      targets: ["8ddd6397-214d-48c9-abbd-ae740e11d85b.cfargotunnel.com"]
