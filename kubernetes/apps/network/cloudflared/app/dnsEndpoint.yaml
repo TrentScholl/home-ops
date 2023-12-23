@@ -5,6 +5,6 @@ metadata:
   name: cloudflared-tunnel
 spec:
   endpoints:
-    - dnsName: trentscholl.com
+    - dnsName: ingress-ext.trentscholl.com
       recordType: CNAME
-      targets: ["8ddd6397-214d-48c9-abbd-ae740e11d85b.cfargotunnel.com"]
+      targets: ["b625778f-8707-4d5c-bfa7-241a8ca88b82.cfargotunnel.com"]
