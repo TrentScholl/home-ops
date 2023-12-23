@@ -11,3 +11,4 @@ resources:
   - ./sergelogvinov.yaml
   - ./prometheus-community.yaml
   - ./kubernetes-sigs-external-dns.yaml
+  - ./weave-gitops.yaml
