@@ -86,7 +86,7 @@ spec:
             any: true
 
       extraArgs:
-        default-ssl-certificate: "networks-d/trentscholl-com-tls"
+        default-ssl-certificate: "network/trentscholl-com-tls"
 
       topologySpreadConstraints:
         - maxSkew: 2
