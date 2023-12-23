@@ -23,8 +23,6 @@ spec:
 
         pod:
           enableServiceLinks: false
-          nodeSelector:
-            intel.feature.node.kubernetes.io/gpu: "true"
           securityContext:
             runAsUser: ${APP_UID}
             runAsGroup: ${APP_GID}
