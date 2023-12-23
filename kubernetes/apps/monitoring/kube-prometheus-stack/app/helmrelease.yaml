@@ -128,7 +128,7 @@ spec:
         ingressClassName: internal-nginx
         pathType: Prefix
         hosts:
-          - &host_prometheus prometheus-${CLUSTER_NAME}.trentscholl.com
+          - &host_prometheus prometheus.trentscholl.com
         tls:
           - hosts:
               - *host_prometheus
