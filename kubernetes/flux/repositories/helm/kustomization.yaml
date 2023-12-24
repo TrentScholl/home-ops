@@ -12,3 +12,6 @@ resources:
   - ./prometheus-community.yaml
   - ./kubernetes-sigs-external-dns.yaml
   - ./weave-gitops.yaml
+  - ./k8tz.yaml
+  - ./postfinance.yaml
+  - ./piraeus.yaml
