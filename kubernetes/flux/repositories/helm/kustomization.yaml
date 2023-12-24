@@ -15,3 +15,5 @@ resources:
   - ./k8tz.yaml
   - ./postfinance.yaml
   - ./piraeus.yaml
+  - ./backube.yaml
+  - ./stakater.yaml
