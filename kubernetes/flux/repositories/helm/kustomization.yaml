@@ -18,3 +18,4 @@ resources:
   - ./backube.yaml
   - ./stakater.yaml
   - ./kubernetes-sigs-nfd.yaml
+  - ./intel.yaml
