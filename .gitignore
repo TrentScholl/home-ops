@@ -2,12 +2,16 @@
 Thumbs.db
 .private/
 .venv/
+.task/
 .terraform
 *.tfvars
+.cache_ggshield
 .decrypted~*
+*.secret.env
+*.secret.yaml
 *.agekey
 *.pub
 *.key
 *.pem
-kubeconfig*
+kubeconfig
 config.xml

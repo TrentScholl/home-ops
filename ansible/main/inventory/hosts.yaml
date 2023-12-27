@@ -1,0 +1,20 @@
+---
+kubernetes:
+  vars:
+    ansible_user: trentscholl
+    ansible_ssh_port: 22
+  children:
+    master:
+      hosts:
+        k8s-control-plane-01:
+          ansible_host: 10.1.1.21
+        k8s-control-plane-02:
+          ansible_host: 10.1.1.22
+        k8s-control-plane-03:
+          ansible_host: 10.1.1.23
+    worker:
+      hosts:
+        k8s-node-01:
+          ansible_host: 10.1.1.31
+        k8s-node-02:
+          ansible_host: 10.1.1.32
