@@ -6,12 +6,12 @@ metadata:
   name: &appname proxmox-csi-plugin
   namespace: flux-system
 spec:
-  targetNamespace: system
+  targetNamespace: storage
   commonMetadata:
     labels:
       app.kubernetes.io/name: *appname
   interval: 10m
-  path: "./kubernetes/main/apps/system/proxmox-csi-plugin/app"
+  path: "./kubernetes/main/apps/storage/proxmox-csi-plugin/app"
   prune: true
   sourceRef:
     kind: GitRepository
