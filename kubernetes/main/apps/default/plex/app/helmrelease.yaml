@@ -39,7 +39,7 @@ spec:
               repository: ghcr.io/onedr0p/plex
               tag: 1.32.8.7639-fb6452ebf@sha256:637fe10cef736f249d96cb004c12f81646c81ca17ddce22374ea8782aa6646c2
             env:
-              TZ: America/New_York
+              TZ: Australia/Brisbane
             probes:
               liveness: &probes
                 enabled: true
@@ -68,15 +68,6 @@ spec:
                 gpu.intel.com/i915: 1
                 memory: 12Gi
         pod:
-          affinity:
-            podAntiAffinity:
-              requiredDuringSchedulingIgnoredDuringExecution:
-                - labelSelector:
-                    matchExpressions:
-                      - key: app.kubernetes.io/name
-                        operator: In
-                        values: ["frigate"]
-                  topologyKey: kubernetes.io/hostname
           nodeSelector:
             intel.feature.node.kubernetes.io/gpu: "true"
           securityContext:
