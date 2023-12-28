@@ -23,10 +23,6 @@ spec:
           token_id: "kubernetes-csi@pve!csi"
           token_secret: "1f0a94ef-b62e-4489-a644-0df9f3eb3c3c"
           region: vm-cluster-01
-    node:
-      nodeSelector:
-      tolerations:
-        - operator: Exists
     storageClass:
       - name: proxmox-data-nvme-xfs
         storage: data-nvme
