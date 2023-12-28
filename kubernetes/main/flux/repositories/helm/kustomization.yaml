@@ -47,3 +47,4 @@ resources:
   - ./weaveworks.yaml
   # - ./windmill.yaml
   - ./xenitab.yaml
+  - ./sergelogvinov.yaml
