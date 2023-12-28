@@ -26,9 +26,7 @@ spec:
   dependsOn:
     - name: intel-device-plugin-gpu
       namespace: tools
-    - name: rook-ceph-cluster
-      namespace: rook-ceph
-    - name: volsync
+    - name: proxmox-csi-plugin
       namespace: storage
   values:
     controllers:
