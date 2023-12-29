@@ -41,7 +41,11 @@ tasks:
                 }
               }
             ],
-            "restartPolicy": "Never"
+            "restartPolicy": "Never",
+            "nodeSelector":
+            {
+              "kubernetes.io/hostname": "k8s-node-02"
+            }
           }
         }'
     vars:

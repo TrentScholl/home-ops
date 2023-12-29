@@ -119,17 +119,6 @@
               ff02::1 ip6-allnodes
               ff02::2 ip6-allrouters
             mode: preserve
-        - name: Network Configuration | Set NIC MTU
-          ansible.builtin.copy:
-            dest: /etc/network/interfaces.d/enp6s18
-            content: |
-              auto enp6s18
-              allow-hotplug enp6s18
-              iface enp6s18 inet dhcp
-                  post-up ifconfig enp6s18 mtu 1500
-            owner: root
-            group: root
-            mode: "0644"
 
     - name: System Configuration
       notify: Reboot
