@@ -108,7 +108,19 @@ spec:
         existingClaim: sonarr
       tmp:
         type: emptyDir
-      media:
+      movies:
+        type: nfs
+        server: 10.1.1.91
+        path: /storage/movies
+        globalMounts:
+          - path: /movies
+      tv:
+        type: nfs
+        server: 10.1.1.91
+        path: /storage/tv
+        globalMounts:
+          - path: /tv
+      downloads:
         type: nfs
         server: 10.1.1.91
         path: /storage/downloads
