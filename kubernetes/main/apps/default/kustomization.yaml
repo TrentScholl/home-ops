@@ -10,3 +10,4 @@ resources:
   - ./sabnzbd/ks.yaml
   - ./sonarr/ks.yaml
   - ./radarr/ks.yaml
+  - ./zwave-js-ui/ks.yaml
