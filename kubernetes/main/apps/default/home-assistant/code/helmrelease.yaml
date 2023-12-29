@@ -37,7 +37,7 @@ spec:
               repository: ghcr.io/coder/code-server
               tag: 4.20.0
             env:
-              TZ: Australia/Brisbane
+              TZ: Australia/Sydney
             args:
               - --auth
               - "none"
