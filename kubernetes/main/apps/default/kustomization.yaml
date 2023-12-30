@@ -12,3 +12,4 @@ resources:
   - ./radarr/ks.yaml
   - ./zwave-js-ui/ks.yaml
   - ./home-assistant/ks.yaml
+  - ./mealie/ks.yaml
