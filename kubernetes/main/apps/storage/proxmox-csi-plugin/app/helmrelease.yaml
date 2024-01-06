@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: proxmox-csi-plugin
-      version: 0.1.13
+      version: 0.1.15
       interval: 30m
       sourceRef:
         kind: HelmRepository
