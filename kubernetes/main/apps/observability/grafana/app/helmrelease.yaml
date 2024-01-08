@@ -342,7 +342,7 @@ spec:
       enabled: true
       ingressClassName: internal
       hosts:
-        - &host grafana.devbu.io
+        - &host grafana.trentscholl.com
       tls:
         - hosts:
             - *host
