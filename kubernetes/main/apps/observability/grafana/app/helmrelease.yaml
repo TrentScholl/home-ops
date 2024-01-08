@@ -24,7 +24,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    replicas: 2
+    replicas: 1
     env:
       GF_DATE_FORMATS_USE_BROWSER_LOCALE: true
       GF_EXPLORE_ENABLED: true
