@@ -56,7 +56,6 @@ spec:
               TZ: Australia/Brisbane
               GATUS_CONFIG_PATH: /config
               CUSTOM_WEB_PORT: &port 80
-            envFrom: *envFrom
             securityContext: &securityContext
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
