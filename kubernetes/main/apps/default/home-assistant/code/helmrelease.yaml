@@ -60,6 +60,8 @@ spec:
             runAsGroup: 568
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
+          nodeSelector:
+            aeotec.feature.node.kubernetes.io/zwave: "true"
     service:
       main:
         ports:
