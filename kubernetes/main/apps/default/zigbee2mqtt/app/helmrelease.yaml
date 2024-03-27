@@ -25,10 +25,10 @@ spec:
   dependsOn:
     - name: mosquitto
       namespace: default
-    - name: rook-ceph-cluster
-      namespace: rook-ceph
+    - name: proxmox-csi-plugin
+      namespace: storage
     - name: volsync
-      namespace: volsync-system
+      namespace: storage
   values:
     controllers:
       zigbee2mqtt:
