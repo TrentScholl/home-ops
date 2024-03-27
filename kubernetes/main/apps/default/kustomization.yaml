@@ -14,3 +14,4 @@ resources:
   - ./home-assistant/ks.yaml
   - ./mealie/ks.yaml
   - ./mosquitto/ks.yaml
+  - ./zigbee2mqtt/ks.yaml
