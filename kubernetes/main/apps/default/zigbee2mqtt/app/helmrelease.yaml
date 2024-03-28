@@ -47,6 +47,7 @@ spec:
               ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: &port 80
               ZIGBEE2MQTT_CONFIG_FRONTEND: "false"
               ZIGBEE2MQTT_CONFIG_FRONTEND_URL: https://zigbee.trentscholl.com
+              ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER: "ezsp"
             envFrom:
               - secretRef:
                   name: zigbee2mqtt-secret
