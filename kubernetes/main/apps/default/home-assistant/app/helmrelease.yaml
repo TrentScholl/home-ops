@@ -37,7 +37,7 @@ spec:
           main:
             image:
               repository: ghcr.io/onedr0p/home-assistant
-              tag: 2024.1.2@sha256:994754a626420f6c336f90e8dbc6adb2fd3dd63eb9d893629303ff2329476b36
+              tag: 2024.4.4@sha256:f2cb8e343ff32450b881a0c579e0805ef0bf4135b367bb3032bd9d0ec1618fd4
             env:
               TZ: Australia/Brisbane
             envFrom:
