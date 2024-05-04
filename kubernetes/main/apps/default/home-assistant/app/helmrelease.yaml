@@ -71,6 +71,9 @@ spec:
             aeotec.feature.node.kubernetes.io/zwave: "true"
     service:
       main:
+        type: LoadBalancer
+        annotations:
+          io.cilium/lb-ipam-ips: 10.1.1.211
         ports:
           http:
             port: 8123
