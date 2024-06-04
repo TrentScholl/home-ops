@@ -81,7 +81,7 @@ spec:
             port: 21063
           homekit_udp:
             port: 5353
-            protocol: udp
+            protocol: UDP
     ingress:
       main:
         enabled: true
