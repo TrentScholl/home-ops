@@ -77,7 +77,7 @@ spec:
         ports:
           http:
             port: 8123
-          homekit_udp:
+          homekitudp:
             port: 5353
     ingress:
       main:
