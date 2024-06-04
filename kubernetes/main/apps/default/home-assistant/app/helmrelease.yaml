@@ -81,6 +81,7 @@ spec:
             port: 21063
           homekitudp:
             port: 5353
+            protocol: UDP
     ingress:
       main:
         enabled: true
