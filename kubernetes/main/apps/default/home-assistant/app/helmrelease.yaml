@@ -77,6 +77,8 @@ spec:
         ports:
           http:
             port: 8123
+          homekittcp:
+            port: 21063
           homekitudp:
             port: 5353
     ingress:
