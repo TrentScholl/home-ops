@@ -77,8 +77,6 @@ spec:
         ports:
           http:
             port: 8123
-          homekit_tcp:
-            port: 21063
           homekit_udp:
             port: 5353
             protocol: UDP
