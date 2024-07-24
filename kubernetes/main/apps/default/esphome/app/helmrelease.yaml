@@ -21,7 +21,7 @@ spec:
     cleanupOnFail: true
     remediation:
       strategy: rollback
-      retries: 4
+      retries: 3
   dependsOn:
     - name: proxmox-csi-plugin
       namespace: storage
