@@ -48,7 +48,7 @@ spec:
                 enabled: false
             securityContext:
               allowPrivilegeEscalation: false
-              #readOnlyRootFilesystem: true
+              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               requests:
@@ -88,3 +88,7 @@ spec:
         existingClaim: esphome
         globalMounts:
           - path: /config
+      platformio:
+        type: emptyDir
+        globalMounts:
+          - path: /.platformio
