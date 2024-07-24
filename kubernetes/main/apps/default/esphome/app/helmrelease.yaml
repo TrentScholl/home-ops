@@ -69,7 +69,7 @@ spec:
         controller: esphome
         ports:
           http:
-            port: *port
+            port: 6052
     ingress:
       app:
         annotations:
