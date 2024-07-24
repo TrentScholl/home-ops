@@ -92,3 +92,7 @@ spec:
         type: emptyDir
         globalMounts:
           - path: /.platformio
+      piolibs:
+        type: emptyDir
+        globalMounts:
+          - path: /piolibs
