@@ -1,14 +1,10 @@
 ---
 originRequest:
-  http2Origin: true
+  originServerName: external.trentscholl.com
 
 ingress:
   - hostname: trentscholl.com
     service: https://nginx-external-controller.network.svc.cluster.local:443
-    originRequest:
-      originServerName: external.trentscholl.com
   - hostname: "*.trentscholl.com"
     service: https://nginx-external-controller.network.svc.cluster.local:443
-    originRequest:
-      originServerName: external.trentscholl.com
   - service: http_status:404
