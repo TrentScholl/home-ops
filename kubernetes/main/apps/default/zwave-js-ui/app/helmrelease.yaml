@@ -39,6 +39,7 @@ spec:
               tag: 9.16.2@sha256:5a9fefa1a7c334137dabc389f714bacfce7b874d5e3bb045beef6bd8c29162e2
             env:
               TZ: Australia/Brisbane
+              PORT: &port 80
             probes:
               liveness: &probes
                 enabled: true
@@ -52,14 +53,14 @@ spec:
                   timeoutSeconds: 1
                   failureThreshold: 3
               readiness: *probes
+            securityContext:
+              privileged: true
             resources:
               requests:
                 cpu: 10m
               limits:
                 memory: 512Mi
     defaultPodOptions:
-      securityContext:
-        privileged: true
       nodeSelector:
         aeotec.feature.node.kubernetes.io/zwave: "true"
     service:
@@ -87,6 +88,8 @@ spec:
         existingClaim: zwave-js-ui
         globalMounts:
           - path: /usr/src/app/store
+      tmp:
+        type: emptyDir
       usb:
         type: hostPath
         hostPath: /dev/serial/by-id/usb-0658_0200-if00
