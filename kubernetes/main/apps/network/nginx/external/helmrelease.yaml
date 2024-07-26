@@ -20,9 +20,8 @@ spec:
   upgrade:
     cleanupOnFail: true
     remediation:
+      strategy: rollback
       retries: 3
-  uninstall:
-    keepHistory: false
   valuesFrom:
     - targetPath: controller.maxmindLicenseKey
       kind: Secret
@@ -55,6 +54,7 @@ spec:
         enable-brotli: "true"
         enable-ocsp: "true"
         enable-real-ip: "true"
+        force-ssl-redirect: "true"
         hide-headers: Server,X-Powered-By
         hsts-max-age: 31449600
         keep-alive-requests: 10000
@@ -79,6 +79,7 @@ spec:
             any: true
       extraArgs:
         default-ssl-certificate: network/trentscholl-com-tls
+      terminationGracePeriodSeconds: 120
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
@@ -91,7 +92,6 @@ spec:
       resources:
         requests:
           cpu: 100m
-          memory: 250Mi
         limits:
           memory: 500Mi
     defaultBackend:
