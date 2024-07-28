@@ -13,4 +13,3 @@ spec:
   dnsNames:
     - trentscholl.com
     - "*.trentscholl.com"
-    - tmp.trentscholl.com
