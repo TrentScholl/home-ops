@@ -34,7 +34,7 @@ spec:
       service:
         annotations:
           external-dns.alpha.kubernetes.io/hostname: external.trentscholl.com
-          io.cilium/lb-ipam-ips: 10.1.1.46
+          io.cilium/lb-ipam-ips: 10.1.1.53
       ingressClassResource:
         name: external
         default: false
@@ -78,7 +78,7 @@ spec:
           namespaceSelector:
             any: true
       extraArgs:
-        default-ssl-certificate: network/devbu-io-tls
+        default-ssl-certificate: network/trentscholl-com-tls
       terminationGracePeriodSeconds: 120
       topologySpreadConstraints:
         - maxSkew: 1

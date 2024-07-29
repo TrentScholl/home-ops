@@ -20,5 +20,5 @@ spec:
   allowFirstLastIPs: "Yes"
   blocks:
     - # Controller VIP: 10.1.1.41
-      start: 10.1.1.42
+      start: 10.1.1.52
       stop: 10.1.1.59
