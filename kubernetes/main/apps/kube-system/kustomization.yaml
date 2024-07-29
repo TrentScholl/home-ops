@@ -13,5 +13,6 @@ resources:
   - ./kubelet-csr-approver/ks.yaml
   - ./metrics-server/ks.yaml
   - ./node-feature-discovery/ks.yaml
+  - ./proxmox-csi-plugin/ks.yaml
   - ./reloader/ks.yaml
   - ./spegel/ks.yaml
