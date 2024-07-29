@@ -36,7 +36,7 @@ spec:
           app:
             image:
               repository: esphome/esphome
-              tag: 2024.7.1@sha256:3932b743b403d654414c6de750af424d73c083ff817de2aa8c72fcaa03cb9f5b
+              tag: 2024.7.1@sha256:02ae24051f42067dee055b33a86389140598aa341e78604999bd75d82b5e4e16
             env:
               TZ: Australia/Brisbane
             probes:
