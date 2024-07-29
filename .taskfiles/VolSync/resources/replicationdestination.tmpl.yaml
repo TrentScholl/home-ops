@@ -11,7 +11,7 @@ spec:
     repository: ${app}-volsync-secret
     destinationPVC: ${claim}
     copyMethod: Direct
-    storageClassName: ceph-block
+    storageClassName: proxmox-data-nvme-xfs
     # storageClassName: ceph-filesystem
     # accessModes: ["ReadWriteMany"]
     # IMPORTANT NOTE:
