@@ -5,6 +5,10 @@ originRequest:
 ingress:
   - hostname: trentscholl.com
     service: https://nginx-external-controller.network.svc.cluster.local:443
+    originRequest:
+      noTLSVerify: true
   - hostname: "*.trentscholl.com"
     service: https://nginx-external-controller.network.svc.cluster.local:443
+    originRequest:
+      noTLSVerify: true
   - service: http_status:404
