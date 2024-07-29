@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: proxmox-csi-plugin
-      version: 0.2.5
+      version: 0.7.0
       sourceRef:
         kind: HelmRepository
         name: sergelogvinov
@@ -23,18 +23,6 @@ spec:
       strategy: rollback
       retries: 3
   values:
-    node:
-      nodeSelector:
-        node.cloudprovider.kubernetes.io/platform: nocloud
-      tolerations:
-        - operator: Exists
-
-    nodeSelector:
-      node-role.kubernetes.io/control-plane: ""
-    tolerations:
-      - key: node-role.kubernetes.io/control-plane
-        effect: NoSchedule
-
     config:
       clusters:
         - url: https://vm.trentscholl.com:8006/api2/json
@@ -42,7 +30,6 @@ spec:
           token_id: "kubernetes-csi@pve!csi"
           token_secret: "1f0a94ef-b62e-4489-a644-0df9f3eb3c3c"
           region: vm-cluster-01
-
     storageClass:
       - name: proxmox-data-nvme-xfs
         storage: data-nvme
