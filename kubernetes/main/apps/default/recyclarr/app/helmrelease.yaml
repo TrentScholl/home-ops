@@ -23,7 +23,7 @@ spec:
       strategy: rollback
       retries: 3
   dependsOn:
-    - name: proxmos-csi-plugin
+    - name: proxmox-csi-plugin
       namespace: kube-system
     - name: volsync
       namespace: volsync-system
