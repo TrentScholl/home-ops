@@ -61,7 +61,7 @@ spec:
         controller: mealie
         ports:
           http:
-            port: *port
+            port: 9000
     ingress:
       app:
         annotations:
