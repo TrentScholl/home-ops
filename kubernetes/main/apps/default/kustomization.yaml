@@ -10,6 +10,7 @@ resources:
   - ./home-assistant/ks.yaml
   - ./mealie/ks.yaml
   - ./minio/ks.yaml
+  - ./plex/ks.yaml
   - ./sabnzbd/ks.yaml
   - ./radarr/ks.yaml
   - ./sonarr/ks.yaml
