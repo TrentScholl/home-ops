@@ -8,4 +8,5 @@ resources:
   # Flux-Kustomizations
   - ./esphome/ks.yaml
   - ./minio/ks.yaml
+  - ./zigbee2mqtt/ks.yaml
   - ./zwave/ks.yaml
