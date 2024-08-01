@@ -49,7 +49,7 @@ tasks:
     summary: |
       cluster: Cluster to run command against (default: main)
     cmds:
-      - for: ["Evicted", "Failed", "Succeeded"]
+      - for: ["Evicted", "Failed", "Succeeded", "NodePorts"]
         cmd: kubectl --context {{.cluster}} delete pods --field-selector status.phase={{.ITEM}} -A --ignore-not-found=true
     vars:
       cluster: '{{.cluster | default "main"}}'
