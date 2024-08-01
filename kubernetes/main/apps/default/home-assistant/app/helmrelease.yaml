@@ -87,6 +87,9 @@ spec:
         ports:
           http:
             port: 8123
+      code-server:
+        controller: home-assistant
+        ports:
           code-server:
             port: 12321
     ingress:
@@ -110,7 +113,7 @@ spec:
             paths:
               - path: /
                 service:
-                  identifier: app
+                  identifier: code-server
                   port: code-server
     persistence:
       config:
