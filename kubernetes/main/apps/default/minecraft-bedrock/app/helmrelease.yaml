@@ -105,6 +105,8 @@ spec:
         annotations:
           io.cilium/lb-ipam-ips: 10.1.1.56
         ports:
+          tcp:
+            port: 19132
           udp:
             port: 19132
     persistence:
