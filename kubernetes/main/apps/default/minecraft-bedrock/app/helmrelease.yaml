@@ -55,7 +55,7 @@ spec:
               MAX_THREADS: 8
               GAMEMODE: survival
               LEVEL_TYPE: DEFAULT
-              LEVEL_NAME: Grevillea
+              LEVEL_NAME: grevillea
               #LEVEL_SEED:
               DEFAULT_PLAYER_PERMISSION_LEVEL: member
               TEXTUREPACK_REQUIRED: false
@@ -105,6 +105,8 @@ spec:
         annotations:
           io.cilium/lb-ipam-ips: 10.1.1.56
         ports:
+          tcp:
+            port: 19132
           udp:
             port: 19132
     persistence:
