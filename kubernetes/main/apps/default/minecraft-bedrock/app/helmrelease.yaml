@@ -110,4 +110,6 @@ spec:
       config:
         existingClaim: minecraft-bedrock
         globalMounts:
-          - path: /config
+          - path: /data
+      tmp:
+        type: emptyDir
