@@ -1,0 +1,113 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: minecraft-bedrock
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 3.2.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      strategy: rollback
+      retries: 3
+  dependsOn:
+    - name: proxmox-csi-plugin
+      namespace: kube-system
+    - name: volsync
+      namespace: volsync-system
+  values:
+    controllers:
+      minecraft-bedrock:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          app:
+            image:
+              repository: itzg/minecraft-bedrock-server
+              tag: 2024.5.0
+            env:
+              EULA: "TRUE"
+              VERSION: LATEST
+              DIFFICULTY: easy
+              SERVER_NAME: "Grevillea"
+              #WHITE_LIST:
+              #WHITE_LIST_USERS:
+              #OPS:
+              #MEMBERS:
+              #VISITORS:
+              ALLOW_CHEATS: false
+              MAX_PLAYERS: 10
+              VIEW_DISTANCE: 10
+              TICK_DISTANCE: 4
+              PLAYER_IDLE_TIMEOUT: 30
+              MAX_THREADS: 8
+              GAMEMODE: survival
+              LEVEL_TYPE: DEFAULT
+              LEVEL_NAME: grevillea
+              #LEVEL_SEED:
+              DEFAULT_PLAYER_PERMISSION_LEVEL: member
+              TEXTUREPACK_REQUIRED: false
+              ONLINE_MODE: true
+              EMIT_SERVER_TELEMETRY: false
+              ENABLE_LAN_VISIBILITY: true
+              SERVER_PORT: 19132
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  command:
+                    - mc-monitor
+                    - status-bedrock
+                    - --host
+                    - 127.0.0.1
+                    - --port
+                    - 19132
+                  initialDelaySeconds: 30
+                  periodSeconds: 30
+                  timeoutSeconds: 10
+                  failureThreshold: 6
+              readiness: *probes
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 100m
+              limits:
+                memory: 512Mi
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 568
+        runAsGroup: 568
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile: { type: RuntimeDefault }
+    service:
+      app:
+        controller: minecraft-bedrock
+        type: LoadBalancer
+        annotations:
+          io.cilium/lb-ipam-ips: 10.1.1.56
+        ports:
+          udp:
+            port: 19132
+    persistence:
+      config:
+        existingClaim: minecraft-bedrock
+        globalMounts:
+          - path: /config
