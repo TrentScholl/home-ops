@@ -68,13 +68,14 @@ spec:
                 enabled: true
                 custom: true
                 spec:
-                  command:
-                    - mc-monitor
-                    - status-bedrock
-                    - --host
-                    - 127.0.0.1
-                    - --port
-                    - 19132
+                  exec:
+                    command:
+                      - mc-monitor
+                      - status-bedrock
+                      - --host
+                      - 127.0.0.1
+                      - --port
+                      - 19132
                   initialDelaySeconds: 30
                   periodSeconds: 30
                   timeoutSeconds: 10
